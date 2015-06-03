@@ -34,6 +34,10 @@
 (setq-default ac-sources '(ac-source-abbrev ac-source-words-in-buffer))
 (define-key ac-complete-mode-map "\C-n" 'ac-next)
 (define-key ac-complete-mode-map "\C-p" 'ac-previous)
+(add-hook 'text-mode-hook (lambda () (auto-complete-mode)))
+
+;; Treat TODO files as text
+(add-to-list 'auto-mode-alist '("TODO" . text-mode))
 
 ;; Rust
 (require 'rust-mode)
