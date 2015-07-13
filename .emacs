@@ -48,11 +48,16 @@
 (add-hook 'python-mode-hook (lambda () (setq indent-tabs-mode nil tab-width 4)))
 
 ;; Java
+(setq c-offsets-alist '((arglist-cont-nonempty . +)))
 (add-hook 'java-mode-hook (lambda ()
                             (setq c-basic-offset 4
                                   tab-width 4
                                   indent-tabs-mode nil
-                                  show-paren-mode t)))
+                                  show-paren-mode t
+				  )
+			    (c-set-offset 'arglist-intro '+)
+			    )
+	  )
 
 ;; C
 (add-hook 'c-mode-hook (lambda () (c-set-style "user")))
